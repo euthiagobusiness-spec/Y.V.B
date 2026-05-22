@@ -1,4 +1,3 @@
-import { useEffect, useRef } from 'react'
 import Button from './ui/Button'
 import ResultCard from './ResultCard'
 
@@ -7,79 +6,8 @@ function getThumbImage(image) {
 }
 
 export default function Results({ results, cta }) {
-  const sectionRef = useRef(null)
-
-  useEffect(() => {
-    const section = sectionRef.current
-    const canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-
-    if (!section || !canHover || reduceMotion) return undefined
-
-    let activeCard = null
-    let frame = 0
-    let latestEvent = null
-
-    const resetCard = (card) => {
-      if (!card) return
-      card.style.removeProperty('--mx')
-      card.style.removeProperty('--my')
-      card.style.removeProperty('--tilt-x')
-      card.style.removeProperty('--tilt-y')
-    }
-
-    const updateCard = () => {
-      frame = 0
-      if (!latestEvent || !activeCard) return
-
-      const rect = activeCard.getBoundingClientRect()
-      const x = Math.min(Math.max((latestEvent.clientX - rect.left) / rect.width, 0), 1)
-      const y = Math.min(Math.max((latestEvent.clientY - rect.top) / rect.height, 0), 1)
-
-      activeCard.style.setProperty('--mx', `${x * 100}%`)
-      activeCard.style.setProperty('--my', `${y * 100}%`)
-      activeCard.style.setProperty('--tilt-y', `${(x - 0.5) * 5.5}deg`)
-      activeCard.style.setProperty('--tilt-x', `${(0.5 - y) * 4.5}deg`)
-    }
-
-    const onPointerMove = (event) => {
-      const card = event.target.closest('.result-interactive')
-      if (!card || !section.contains(card)) {
-        resetCard(activeCard)
-        activeCard = null
-        return
-      }
-
-      if (activeCard !== card) {
-        resetCard(activeCard)
-        activeCard = card
-      }
-
-      latestEvent = event
-      if (!frame) frame = window.requestAnimationFrame(updateCard)
-    }
-
-    const onPointerLeave = () => {
-      if (frame) window.cancelAnimationFrame(frame)
-      frame = 0
-      latestEvent = null
-      resetCard(activeCard)
-      activeCard = null
-    }
-
-    section.addEventListener('pointermove', onPointerMove, { passive: true })
-    section.addEventListener('pointerleave', onPointerLeave)
-
-    return () => {
-      if (frame) window.cancelAnimationFrame(frame)
-      section.removeEventListener('pointermove', onPointerMove)
-      section.removeEventListener('pointerleave', onPointerLeave)
-      resetCard(activeCard)
-    }
-  }, [])
-
   return (
-    <section id="resultados" ref={sectionRef} className="section-spacing">
+    <section id="resultados" className="section-spacing">
       <div className="section-shell">
         <div className="grid gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:items-end">
           <div>
