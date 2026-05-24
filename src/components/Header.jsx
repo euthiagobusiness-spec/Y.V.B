@@ -7,16 +7,16 @@ export default function Header({ brand, cta, navItems }) {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-nude/55 bg-ivory/88 shadow-[0_10px_36px_rgba(90,60,58,0.04)] backdrop-blur-xl">
-      <div className="section-shell flex h-20 items-center justify-between gap-5 lg:gap-8">
+      <div className="section-shell flex h-16 items-center justify-between gap-4 sm:h-20 lg:gap-8">
         <a
           href="#inicio"
           className="group flex min-w-fit flex-col leading-none"
           aria-label={`${brand.name} - início`}
         >
-          <span className="font-display text-[1.75rem] font-semibold lowercase tracking-[0.01em] text-cocoa transition hover:group-hover:text-blush sm:text-[1.9rem]">
+          <span className="font-display text-[1.52rem] font-semibold lowercase tracking-[0.01em] text-cocoa transition hover:group-hover:text-blush sm:text-[1.9rem]">
             yasmin vitória
           </span>
-          <span className="mt-1 text-[0.6rem] font-bold tracking-[0.46em] text-gold">BEAUTY</span>
+          <span className="mt-1 text-[0.52rem] font-bold tracking-[0.42em] text-gold sm:text-[0.6rem] sm:tracking-[0.46em]">BEAUTY</span>
         </a>
 
         <nav className="hidden items-center gap-6 xl:gap-8 lg:flex" aria-label="Menu principal">
@@ -44,7 +44,7 @@ export default function Header({ brand, cta, navItems }) {
 
         <button
           type="button"
-          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-blush/20 bg-white/60 text-cocoa transition duration-300 hover:border-blush/45 hover:text-blush focus:outline-none focus:ring-2 focus:ring-blush/45 focus:ring-offset-2 focus:ring-offset-ivory lg:hidden"
+          className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-blush/20 bg-white/60 text-cocoa transition duration-300 hover:border-blush/45 hover:text-blush focus:outline-none focus:ring-2 focus:ring-blush/45 focus:ring-offset-2 focus:ring-offset-ivory sm:h-11 sm:w-11 lg:hidden"
           aria-label={isOpen ? 'Fechar menu' : 'Abrir menu'}
           aria-expanded={isOpen}
           aria-controls="mobile-menu"

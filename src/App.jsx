@@ -140,7 +140,7 @@ export default function App() {
     <div className="ambient-stage min-h-screen overflow-x-hidden bg-ivory text-cocoa">
       <div className="pointer-liquid-glass" aria-hidden="true" />
       <Header brand={brand} cta={ctas.whatsapp} navItems={navItems} />
-      <main className="pt-20">
+      <main className="pt-16 sm:pt-20">
         <Hero brand={brand} ctas={ctas} />
         <About cards={aboutCards} />
         <Services cta={ctas.doubts} services={services} />

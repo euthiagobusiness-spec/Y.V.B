@@ -13,19 +13,19 @@ export default function ServiceCard({ service, index }) {
   const Icon = iconMap[service.icon] || Sparkle
 
   return (
-    <article className={`soft-card hover-lift glass-shimmer group flex min-h-[21rem] flex-col p-6 sm:p-7 ${index === 1 ? 'xl:translate-y-8' : ''}`}>
+    <article className={`soft-card hover-lift glass-shimmer group flex min-h-[15.5rem] flex-col p-5 sm:min-h-[21rem] sm:p-7 ${index === 1 ? 'xl:translate-y-8' : ''}`}>
       <div className="relative z-10 flex items-start justify-between gap-5">
-        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[1.15rem] border border-white/60 bg-white/30 text-blush shadow-[inset_0_1px_0_rgba(255,255,255,0.75),0_10px_24px_rgba(168,111,111,0.1)] backdrop-blur-md transition duration-300 group-hover:border-gold/40 group-hover:bg-ivory/80 group-hover:text-gold">
-          <Icon size={22} strokeWidth={1.55} aria-hidden="true" />
+        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[1rem] border border-white/60 bg-white/30 text-blush shadow-[inset_0_1px_0_rgba(255,255,255,0.75),0_10px_24px_rgba(168,111,111,0.1)] backdrop-blur-md transition duration-300 group-hover:border-gold/40 group-hover:bg-ivory/80 group-hover:text-gold sm:h-12 sm:w-12 sm:rounded-[1.15rem]">
+          <Icon size={20} strokeWidth={1.55} aria-hidden="true" />
         </div>
-        <span className="mt-5 h-px w-14 bg-gold/35 transition-all duration-300 group-hover:w-20 group-hover:bg-blush/35" />
+        <span className="mt-4 h-px w-12 bg-gold/35 transition-all duration-300 group-hover:w-20 group-hover:bg-blush/35 sm:mt-5 sm:w-14" />
       </div>
 
-      <h3 className="relative z-10 mt-7 font-display text-[2rem] font-semibold leading-none text-cocoa">
+      <h3 className="relative z-10 mt-5 font-display text-[1.65rem] font-semibold leading-none text-cocoa sm:mt-7 sm:text-[2rem]">
         {service.title}
       </h3>
-      <p className="relative z-10 mt-4 text-sm leading-7 text-cocoa/68">{service.description}</p>
-      <p className="relative z-10 mt-auto border-t border-nude/55 pt-5 text-sm font-bold leading-6 text-blush">
+      <p className="relative z-10 mt-3 text-[0.86rem] leading-6 text-cocoa/68 sm:mt-4 sm:text-sm sm:leading-7">{service.description}</p>
+      <p className="relative z-10 mt-5 border-t border-nude/55 pt-4 text-[0.86rem] font-bold leading-6 text-blush sm:mt-auto sm:pt-5 sm:text-sm">
         {service.benefit}
       </p>
     </article>

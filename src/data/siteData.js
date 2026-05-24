@@ -215,7 +215,7 @@ export const resultItems = [
     alt: 'Foto real de detalhes do atendimento',
     image: '/assets/results/result-11.jpg',
     objectPosition: 'center 66%',
-    shape: 'lg:col-span-12 aspect-[16/7]',
+    shape: 'col-span-2 lg:col-span-12 aspect-[16/7]',
   },
 ]
 

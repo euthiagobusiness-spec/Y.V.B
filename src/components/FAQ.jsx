@@ -8,14 +8,14 @@ export default function FAQ({ items, cta }) {
   return (
     <section id="duvidas" className="section-spacing border-y border-white/60 bg-white/40">
       <div className="section-shell">
-        <div className="grid gap-12 lg:grid-cols-[0.78fr_1.22fr]">
+        <div className="grid gap-8 sm:gap-12 lg:grid-cols-[0.78fr_1.22fr]">
           <div>
             <p className="eyebrow">Dúvidas</p>
             <h2 className="section-title mt-5">Perguntas comuns antes do atendimento</h2>
-            <p className="section-copy mt-6">
+            <p className="section-copy mt-4 sm:mt-6">
               Respostas diretas para você chegar ao atendimento com mais segurança e clareza.
             </p>
-            <Button href={cta.href} variant="editorial" external={cta.external} ariaLabel={cta.ariaLabel} className="mt-8">
+            <Button href={cta.href} variant="editorial" external={cta.external} ariaLabel={cta.ariaLabel} className="mt-6 sm:mt-8">
               {cta.label}
             </Button>
           </div>
@@ -29,12 +29,12 @@ export default function FAQ({ items, cta }) {
                 <div key={item.question} className="glass-card rounded-[1.35rem] transition duration-300 hover:border-blush/25">
                   <button
                     type="button"
-                    className="relative z-10 flex w-full items-center justify-between gap-4 rounded-[1.35rem] px-5 py-5 text-left transition hover:bg-white/25 focus:outline-none focus:ring-2 focus:ring-blush/45 focus:ring-offset-2 focus:ring-offset-ivory sm:px-6"
+                    className="relative z-10 flex w-full items-center justify-between gap-3 rounded-[1.35rem] px-4 py-4 text-left transition hover:bg-white/25 focus:outline-none focus:ring-2 focus:ring-blush/45 focus:ring-offset-2 focus:ring-offset-ivory sm:gap-4 sm:px-6 sm:py-5"
                     aria-expanded={isOpen}
                     aria-controls={contentId}
                     onClick={() => setOpenItem(isOpen ? null : index)}
                   >
-                    <span className="text-base font-bold leading-snug text-cocoa">{item.question}</span>
+                    <span className="text-sm font-bold leading-snug text-cocoa sm:text-base">{item.question}</span>
                     <ChevronDown
                       className={`shrink-0 text-blush transition duration-300 ${isOpen ? 'rotate-180' : ''}`}
                       size={20}
@@ -50,7 +50,7 @@ export default function FAQ({ items, cta }) {
                     }`}
                   >
                     <div className="relative z-10 overflow-hidden">
-                      <p className="px-5 pb-6 text-sm leading-7 text-cocoa/70 sm:px-6">{item.answer}</p>
+                      <p className="px-4 pb-5 text-sm leading-6 text-cocoa/70 sm:px-6 sm:pb-6 sm:leading-7">{item.answer}</p>
                     </div>
                   </div>
                 </div>
