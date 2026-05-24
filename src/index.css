@@ -147,10 +147,6 @@ a {
     z-index: 1;
   }
 
-  .pointer-liquid-glass {
-    display: none;
-  }
-
   .section-shell {
     @apply mx-auto w-full max-w-7xl px-5 sm:px-6 lg:px-8;
   }
@@ -498,64 +494,6 @@ a {
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .pointer-liquid-glass {
-    position: fixed;
-    left: var(--pointer-x);
-    top: var(--pointer-y);
-    z-index: 2;
-    display: block;
-    width: 8.5rem;
-    height: 8.5rem;
-    pointer-events: none;
-    border-radius: 999px;
-    border: 1px solid rgba(255, 255, 255, 0.42);
-    background:
-      radial-gradient(circle at 34% 26%, rgba(255, 255, 255, 0.58), transparent 20%),
-      radial-gradient(circle at 68% 70%, rgba(200, 164, 106, 0.16), transparent 28%),
-      linear-gradient(145deg, rgba(255, 255, 255, 0.2), rgba(235, 211, 208, 0.11));
-    box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.7),
-      inset 0 -14px 28px rgba(90, 60, 58, 0.08),
-      0 18px 50px rgba(90, 60, 58, 0.12),
-      0 6px 20px rgba(168, 111, 111, 0.1);
-    backdrop-filter: blur(7px) saturate(126%) contrast(1.02);
-    -webkit-backdrop-filter: blur(7px) saturate(126%) contrast(1.02);
-    opacity: 0.56;
-    transform: translate3d(-50%, -50%, 0) scale(1);
-    transition:
-      left 900ms cubic-bezier(0.16, 1, 0.3, 1),
-      top 900ms cubic-bezier(0.16, 1, 0.3, 1),
-      opacity 700ms ease,
-      transform 900ms cubic-bezier(0.16, 1, 0.3, 1);
-    mix-blend-mode: soft-light;
-  }
-
-  .pointer-liquid-glass::before,
-  .pointer-liquid-glass::after {
-    content: '';
-    position: absolute;
-    pointer-events: none;
-    border-radius: inherit;
-  }
-
-  .pointer-liquid-glass::before {
-    inset: 0.62rem;
-    border: 1px solid rgba(255, 255, 255, 0.28);
-    background:
-      linear-gradient(135deg, rgba(255, 255, 255, 0.2), transparent 48%),
-      radial-gradient(circle at 30% 28%, rgba(255, 255, 255, 0.42), transparent 24%);
-  }
-
-  .pointer-liquid-glass::after {
-    inset: 18% 22% auto auto;
-    width: 34%;
-    height: 18%;
-    background: rgba(255, 255, 255, 0.5);
-    filter: blur(8px);
-    opacity: 0.5;
-    transform: rotate(-28deg);
-  }
-
   .hover-lift:hover {
     --card-y: -0.42rem;
     --card-scale: 1.012;
@@ -774,14 +712,9 @@ a {
   }
 
   .ambient-stage::before,
-  .ambient-stage::after,
-  .pointer-liquid-glass {
+  .ambient-stage::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 700ms !important;
-  }
-
-  .pointer-liquid-glass {
-    display: none !important;
   }
 }
