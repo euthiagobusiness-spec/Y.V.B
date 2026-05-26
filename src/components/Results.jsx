@@ -1,9 +1,6 @@
 import Button from './ui/Button'
 import ResultCard from './ResultCard'
-
-function getThumbImage(image) {
-  return image?.replace('/assets/results/', '/assets/results/optimized/').replace(/\.jpg$/i, '-480.jpg')
-}
+import { getResultThumbImage } from '../utils/images'
 
 export default function Results({ results, cta }) {
   return (
@@ -37,7 +34,7 @@ export default function Results({ results, cta }) {
             >
               {result.image ? (
                 <img
-                  src={getThumbImage(result.image)}
+                  src={getResultThumbImage(result.image)}
                   alt={result.alt}
                   loading="lazy"
                   decoding="async"

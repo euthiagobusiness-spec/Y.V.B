@@ -1,16 +1,7 @@
-function getOptimizedImage(image) {
-  if (!image) return null
-
-  const basePath = image.replace('/assets/results/', '/assets/results/optimized/').replace(/\.jpg$/i, '')
-
-  return {
-    src: `${basePath}-800.jpg`,
-    srcSet: `${basePath}-480.jpg 480w, ${basePath}-800.jpg 800w, ${basePath}-1200.jpg 1200w`,
-  }
-}
+import { getOptimizedResultImage } from '../utils/images'
 
 export default function ResultCard({ result, index }) {
-  const optimizedImage = getOptimizedImage(result.image)
+  const optimizedImage = getOptimizedResultImage(result.image)
 
   return (
     <figure

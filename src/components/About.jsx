@@ -1,12 +1,6 @@
-import { Heart, ShieldCheck, Smile } from 'lucide-react'
+import AboutFeatureCard from './AboutFeatureCard'
 import GlassCard from './ui/GlassCard'
 import SectionHeader from './ui/SectionHeader'
-
-const iconMap = {
-  heart: Heart,
-  shield: ShieldCheck,
-  smile: Smile,
-}
 
 export default function About({ cards }) {
   return (
@@ -40,19 +34,9 @@ export default function About({ cards }) {
             </p>
 
             <div className="mt-8 grid grid-cols-3 gap-2 sm:mt-12 sm:gap-4">
-              {cards.map(({ title, text, icon }) => {
-                const Icon = iconMap[icon] || Heart
-
-                return (
-                  <article key={title} className="soft-card hover-lift p-3 sm:p-6">
-                    <div className="flex h-9 w-9 items-center justify-center rounded-xl border border-blush/15 bg-nude/45 text-blush sm:h-11 sm:w-11 sm:rounded-2xl">
-                      <Icon size={18} strokeWidth={1.55} aria-hidden="true" />
-                    </div>
-                    <h3 className="mt-3 text-[0.78rem] font-bold leading-snug text-cocoa sm:mt-5 sm:text-base">{title}</h3>
-                    <p className="mt-2 text-[0.68rem] leading-5 text-cocoa/62 sm:mt-3 sm:text-sm sm:leading-6">{text}</p>
-                  </article>
-                )
-              })}
+              {cards.map((card) => (
+                <AboutFeatureCard key={card.title} card={card} />
+              ))}
             </div>
           </div>
         </div>
